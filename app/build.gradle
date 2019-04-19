@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'com.antfortune.freeline'
+
+android {
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.xujun.contralayout"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+
+
+    implementation rootProject.ext.dep["appcompat-v7"]
+    implementation rootProject.ext.dep["recyclerview-v7"]
+    implementation rootProject.ext.dep["cardview-v7"]
+    implementation rootProject.ext.dep["design"]
+    implementation rootProject.ext.dep["logger"]
+    implementation rootProject.ext.dep["percent"]
+    implementation rootProject.ext.dep["picasso"]
+    implementation rootProject.ext.dep["okhttp3"]
+    implementation rootProject.ext.dep["gson"]
+
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.github.clans:fab:1.6.4'
+
+    testImplementation 'junit:junit:4.12'
+}
